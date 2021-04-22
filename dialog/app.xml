@@ -1,0 +1,46 @@
+<templates>
+  <div t-name="App">
+    <div>
+      <button t-on-click="onClick">Click this!</button>
+      <div t-if="state.name">
+        Hello,
+        <t t-esc="state.name" />
+      </div>
+    </div>
+    <div>
+      <button t-on-click="onAreYouSure">Are you sure?</button>
+      <div t-if="state.isSure">
+        Okay, you are really sure.
+      </div>
+    </div>
+  </div>
+  <t t-name="CustomPrompt">
+    <form t-on-submit.prevent="_onSubmit">
+      <div>
+        <t t-esc="props.message" />
+      </div>
+      <div>
+        <input type="text" t-model="state.inputText" />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </t>
+  <t t-name="CustomConfirm">
+    <form>
+      <div>
+        <t t-esc="props.message" />
+      </div>
+      <div>
+        <button t-on-click="props.respondWith(false)">No</button>
+      </div>
+      <div>
+        <button t-on-click="props.respondWith(true)">Yes</button>
+      </div>
+    </form>
+  </t>
+  <div t-name="Dialog">
+    <t t-if="state.showDialog" t-component="dialogComponent" t-props="dialogProps" />
+  </div>
+</templates>

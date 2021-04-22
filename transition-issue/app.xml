@@ -1,0 +1,14 @@
+<templates>
+  <div id="app" t-name="App">
+    <div>
+      <Main t-if="state.showApp === 'READY'" />
+      <div class="loading" t-if="['LOADING', 'CLOSING'].includes(state.showApp)" t-transition="swing">
+        Loading <div class="progress-bar" t-ref="progress-ref"><t t-esc="loading.progress" /></div>
+      </div>
+    </div>
+  </div>
+
+  <div t-name="Main">
+    Hey
+  </div>
+</templates>

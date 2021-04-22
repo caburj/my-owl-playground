@@ -1,0 +1,16 @@
+<templates>
+  <div id="app" t-name="App">
+    <div>
+      <t t-foreach="state.groups" t-as="group" t-key="group">
+        <button t-on-click="onClickGroup(group)">
+          <t t-esc="group"></t>
+        </button>
+      </t>
+      <t t-foreach="getItems()" t-as="item" t-key="item.id">
+        <div>
+          <t t-esc="item.val"></t>
+        </div>
+      </t>
+    </div>
+  </div>
+</templates>

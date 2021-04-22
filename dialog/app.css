@@ -1,0 +1,7 @@
+.swing-enter-active, .swing-leave-active {
+    transition: opacity 0.8s;
+}
+
+.swing-enter, .swing-leave-to {
+    opacity: 0;
+}
